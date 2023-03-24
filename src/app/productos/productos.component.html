@@ -1,0 +1,52 @@
+<!-- HEADER-->
+<header class="bg-dark row">
+</header>
+<!-- END HEADER-->
+<div class="d-flex">
+<app-sidebar></app-sidebar>
+<div class="container">
+<br><br><br>
+<div class="row p-3" id="producto">
+    <h2>PRODUCTOS</h2>
+    <hr><br>
+   <div class="col-lg-4">
+    <!-- <div class="d-flex">
+        <button class="btn btn-primary" type="button">Buscar</button>
+        <input class="form-control me-2" type="text" placeholder="Buscar producto...">
+    </div> -->
+   </div>
+</div>
+<div class="row" >
+    <div *ngFor="let producto of resultadoProductos | paginate: config" class="col-md-3 col-sm-3 animate__animated animate__fadeIn">
+  <div class="card">
+    <ng-template [ngIf]="producto.nombre=='CHORIZOS ESPECIAL' || producto.nombre=='CHORIZOS DE TUSA'">
+      <img class="img-fluid" src="./assets/img/chorizo.jpg" width="287px" style="height: 170px">
+    </ng-template>
+    <ng-template [ngIf]="producto.nombre!='CHORIZOS ESPECIAL' && producto.nombre!='CHORIZOS DE TUSA'">
+      <img class="img-fluid" src="./assets/img/carne_res.jpg" style="height: 170px;">
+    </ng-template>
+    <div class="card-body">
+      <p class="card-text">
+      <strong>Producto:</strong>  {{producto.nombre}}
+      </p>
+      <p class="card-text">
+        <strong>Precio: </strong> ${{producto.precio | number:'.2'}}
+      </p>
+      <p class="card-text">
+        <strong>Cantidad:</strong>
+        <input type="number" class="form-control" #cantidad min="1" placeholder="Ingrese la cantidad..."> 
+      </p>
+      <button class="btn btn-primary" (click)="agregar(producto.id_producto, cantidad.value, producto.nombre, producto.precio)"><i class="uil uil-plus-circle"></i>Agregar</button>
+      <a href="./productos/editar" class="btn btn-info text-white" style="margin-left: 4px;" (click)="recibirProducto(producto)" type="button"><i class="uil uil-edit"></i>Editar</a>  
+      </div>
+  </div>
+    
+    </div>
+    <div class="d-flex justify-content-center">
+      <pagination-controls previousLabel="Previo"
+      nextLabel="Siguiente" (pageChange)="config.currentPage = $event">
+                          </pagination-controls>
+    </div>
+  </div>
+  </div>
+</div>

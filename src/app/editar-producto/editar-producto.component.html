@@ -1,0 +1,34 @@
+<!-- HEADER-->
+<header class="bg-dark row">
+</header>
+<!-- END HEADER-->
+<div class="d-flex">
+<app-sidebar></app-sidebar>
+<div class="container">
+<br><br><br>
+<div class="row p-3" id="compras">
+    <h2 class="text-center">Actualizar producto</h2>
+    <hr><br>
+</div>
+<form [formGroup]="formulario" id="formProducto">
+    <div class="mb-3 mt-3">
+        <label for="nombre">Nombre del producto: </label>
+        <input type="text" formControlName="nombre" class="form-control" value="{{productoUpdated.nombre}}" readonly>
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="nombre">Precio del producto: </label>
+        <input type="number" min="0" formControlName="precio" class="form-control" value="{{productoUpdated.precio}}">
+    </div>
+    <div class="mb-3 mt-3">
+        <label for="nombre">Categoría del producto: </label>
+      <select class="form-control" formControlName="categoria" onmouseover="this.disabled=true;" onmouseout="this.disabled=false;">
+        <option value="">{{productoUpdated.id_categoria.nombre}}</option>
+      <option *ngFor="let categoria of categoriasList" [value]="categoria.id_categoria">{{categoria.nombre}}</option>
+      </select>    
+    </div>
+    <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-success" (click)="editarProducto(productoUpdated)"><i class="uil uil-redo"></i> Actualizar</button>
+    </div>
+  </form>
+</div>
+

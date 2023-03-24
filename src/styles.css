@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+html, body{
+    height: 100%;
+}
+#sidebar{
+    height: 100%;
+    min-height: 100vh;
+    min-width: 180px;
+
+}
+header{
+    width: 88.5%;
+    height: 8%;
+    position: absolute;
+    left: 11em;
+    
+}
+#producto h2{
+    text-align: center;
+}
+#producto input{
+   margin-left: 10px;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+#menu ul ul {
+  display:none;
+ }
+ #menu ul li:hover > ul {
+  display:block;
+ }
+ #containerNav1 li:hover{
+background-color: darkcyan;
+ }
+ #containerNav2 li:hover{
+  background-color: darkcyan;
+   }
+/* CSS para posicionar el bade cerca del carrito*/
+  #buttonEdit{
+    margin-left: 2px;
+  }
+  #formProducto{
+    width: 35%;
+    margin: 0 auto;
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

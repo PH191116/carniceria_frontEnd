@@ -1,0 +1,48 @@
+<!-- HEADER-->
+<header class="bg-dark row">
+</header>
+<!-- END HEADER-->
+<div class="d-flex">
+<app-sidebar></app-sidebar>
+<div class="container">
+<br><br><br>
+<div class="row p-3" id="compras">
+    <h2 class="text-center">Productos a comprar</h2>
+    <hr><br>
+</div>
+<div class="row" >
+   <div class="col-lg-6 text-center" style="margin: 0 auto;" >
+    <table class="table table-striped animate__animated animate__fadeIn">
+        <thead class="table-dark">
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Acción</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosStorage" >
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td>{{producto.total | number:'.2'}}</td>
+            <td><button class="btn btn-danger" (click)="eliminarProducto(producto.id_producto)"><i class="uil uil-trash-alt"></i>Eliminar</button></td>
+            <td><input type="hidden" name="" value="{{producto.id_producto}}"></td>
+          </tr>
+         <tr>
+          <td><strong>TOTAL</strong></td>
+          <td></td>
+          <td><strong>${{total | number:'.2'}}</strong></td>
+         </tr>
+        </tbody>
+    </table>
+    <br>
+      <ng-template [ngIf]="productosStorage.length > 0">
+        <button class="btn btn-success" (click)="addCompra()"><i class="uil uil-wallet" style="width: 50px;"></i>Procesar</button>
+        <button class="btn btn-info text-white" style="margin-left: 4px;" (click)="cleanCompra()"><i class="uil uil-trash-alt" style="width: 50px;"></i>Limpiar</button>
+        </ng-template>
+   </div>
+</div>
+  </div>
+</div>

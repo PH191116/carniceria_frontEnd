@@ -1,0 +1,25 @@
+<!-- SIDEBAR-->
+<div class="bg-dark boder-right p-3" id="sidebar"> 
+  <h3 class="text-light">Butchery</h3>
+<hr class="text-white">
+<nav id="menu">
+  <ul class="nav flex-column">
+    <li class="nav-item" id="containerNav1">
+      <a href="#"><i class="uil uil-shopping-basket"></i> Productos</a>
+      <ul>
+        <li><a href="./"><i class="uil uil-eye"></i>Ver productos</a></li>
+        <li><a href="./productos/agregar"><i class="uil uil-plus-circle"></i>Añadir</a></li>
+      </ul>
+    </li><br>
+    <li class="nav-item" id="containerNav2">
+      <a href="#"><i class="uil uil-shopping-cart-alt"></i> 
+        <ng-template [ngIf]="productosStorage.length > 0">
+          <span  class="badge bg-danger" style="height: 16px; font-size: 10px;">{{productosStorage.length}}</span>
+        </ng-template>Compras</a>
+      <ul>
+        <li><a href="./compras"><i class="uil uil-eye"></i>Ver compras</a></li>
+        <li><a href="./compras/detalle"><i class="uil uil-eye"></i>Ver detalle</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
